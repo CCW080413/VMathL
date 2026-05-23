@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualMATH - DSE 数学主题</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+
+<body>
+    <div class="page-container">
+        <!-- 顶部栏 -->
+        <header class="top-bar">
+            <button class="back-button" onclick="goBack()">← 返回</button>
+            <h1 class="page-title">DSE 数学主题</h1>
+            <div class="placeholder"></div>
+        </header>
+
+        <!-- 主内容区域 -->
+        <div class="content-container">
+            <!-- 主题网格 -->
+            <div class="topics-grid">
+                <!-- 1. 一元二次函数 -->
+                <div class="topic-card" data-path="second.html" onclick="navigateTo(this)">
+                    <div class="card-icon">∫</div>
+                    <h3 class="card-title">一元二次函数</h3>
+                    <p class="card-subtitle">基础函数与图像</p>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <!-- 2. 复数 -->
+                <div class="topic-card" data-path="complex.html" onclick="navigateTo(this)">
+                    <div class="card-icon">ℂ</div>
+                    <h3 class="card-title">复数</h3>
+                    <p class="card-subtitle">复数运算与表示</p>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <!-- 3. 多项式 -->
+                <div class="topic-card" data-path="polynomial.html" onclick="navigateTo(this)">
+                    <div class="card-icon">P(x)</div>
+                    <h3 class="card-title">多项式</h3>
+                    <p class="card-subtitle">因式分解与根</p>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <!-- 4. 指数与对数 -->
+                <div class="topic-card" data-path="exponential_logarithm.html" onclick="navigateTo(this)">
+                    <div class="card-icon">log</div>
+                    <h3 class="card-title">指数与对数</h3>
+                    <p class="card-subtitle">指数函数与对数</p>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <!-- 5. 三角函数 -->
+                <div class="topic-card" data-path="trigonometry.html" onclick="navigateTo(this)">
+                    <div class="card-icon">sin</div>
+                    <h3 class="card-title">三角函数</h3>
+                    <p class="card-subtitle">三角恒等式与应用</p>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <!-- 6. 微积分 -->
+                <div class="topic-card" data-path="calculus.html" onclick="navigateTo(this)">
+                    <div class="card-icon">d/dx</div>
+                    <h3 class="card-title">微积分</h3>
+                    <p class="card-subtitle">导数与积分</p>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <!-- 7. 向量 -->
+                <div class="topic-card" data-path="vectors.html" onclick="navigateTo(this)">
+                    <div class="card-icon">⃗v</div>
+                    <h3 class="card-title">向量</h3>
+                    <p class="card-subtitle">向量运算与几何</p>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <!-- 8. 矩阵 -->
+                <div class="topic-card" data-path="matrix.html" onclick="navigateTo(this)">
+                    <div class="card-icon">[·]</div>
+                    <h3 class="card-title">矩阵</h3>
+                    <p class="card-subtitle">矩阵运算与行列式</p>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <!-- 9. 数列 -->
+                <div class="topic-card" data-path="sequence.html" onclick="navigateTo(this)">
+                    <div class="card-icon">∑</div>
+                    <h3 class="card-title">数列</h3>
+                    <p class="card-subtitle">等差与等比数列</p>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <!-- 10. 概率与统计 -->
+                <div class="topic-card" data-path="probability_statistics.html" onclick="navigateTo(this)">
+                    <div class="card-icon">P(A)</div>
+                    <h3 class="card-title">概率与统计</h3>
+                    <p class="card-subtitle">概率分布与统计</p>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <!-- 11. 坐标与直线 -->
+                <div class="topic-card" data-path="coordinates_lines.html" onclick="navigateTo(this)">
+                    <div class="card-icon">📍</div>
+                    <h3 class="card-title">坐标与直线</h3>
+                    <p class="card-subtitle">坐标系与直线方程</p>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <!-- 12. 圆与二次曲线 -->
+                <div class="topic-card" data-path="circle_conic.html" onclick="navigateTo(this)">
+                    <div class="card-icon">◯</div>
+                    <h3 class="card-title">圆与二次曲线</h3>
+                    <p class="card-subtitle">圆与椭圆方程</p>
+                    <div class="card-arrow">→</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="menu.js"></script>
+</body>
+
+</html>

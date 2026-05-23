@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualMATH - 概率与统计</title>
+    <link rel="stylesheet" href="interactive-tool.css">
+</head>
+
+<body>
+    <div class="page-container">
+        <header class="top-bar">
+            <button class="back-button" onclick="goBack()">← 返回</button>
+            <h1 class="page-title">概率分布与统计</h1>
+            <div class="placeholder"></div>
+        </header>
+
+        <div class="main-content">
+            <div class="canvas-container">
+                <button class="fullscreen-toggle" onclick="toggleFullscreen()">⛶ 全屏</button>
+                <canvas id="statsCanvas"></canvas>
+                <div class="canvas-overlay">
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label>均值 μ =</label>
+                            <input type="number" id="mean" value="0" step="0.5">
+                        </div>
+                        <div class="control-group">
+                            <label>标准差 σ =</label>
+                            <input type="number" id="std-dev" value="1" step="0.1" min="0.1">
+                        </div>
+                        <div class="control-group">
+                            <label>样本量 n =</label>
+                            <input type="number" id="sample-size" value="100" step="10" min="10">
+                        </div>
+                        <div class="operation-buttons">
+                            <button onclick="updateStats()">更新</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-card">
+                    <h3>正态分布</h3>
+                    <div class="formula">f(x) = (1/(σ√(2π))) × e^(-(x-μ)²/2σ²)</div>
+                    <div class="result" id="normal-dist">N(0, 1)</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>均值</h3>
+                    <div class="formula">μ = Σxᵢ/n</div>
+                    <div class="result" id="mean-value">μ = 0</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>标准差</h3>
+                    <div class="formula">σ = √(Σ(xᵢ-μ)²/n)</div>
+                    <div class="result" id="stddev-value">σ = 1</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>68% 区间</h3>
+                    <div class="formula">P(μ-σ < x < μ+σ)=0.68</div>
+                            <div class="result" id="interval-68">[-1, 1]</div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>95% 区间</h3>
+                        <div class="formula">P(μ-2σ < x < μ+2σ)=0.95</div>
+                                <div class="result" id="interval-95">[-2, 2]</div>
+                        </div>
+
+                        <div class="info-card">
+                            <h3>99.7% 区间</h3>
+                            <div class="formula">P(μ-3σ < x < μ+3σ)=0.997</div>
+                                    <div class="result" id="interval-997">[-3, 3]</div>
+                            </div>
+
+                            <div class="info-card">
+                                <h3>样本量影响</h3>
+                                <div class="formula">n 增大，分布更紧集</div>
+                                <div class="result" id="sample-effect">n = 100</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="probability_statistics.js"></script>
+    <script src="fullscreen.js"></script>
+</body>
+
+</html>

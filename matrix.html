@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualMATH - 矩阵</title>
+    <link rel="stylesheet" href="interactive-tool.css">
+</head>
+
+<body>
+    <div class="page-container">
+        <header class="top-bar">
+            <button class="back-button" onclick="goBack()">← 返回</button>
+            <h1 class="page-title">矩阵运算与行列式</h1>
+            <div class="placeholder"></div>
+        </header>
+
+        <div class="main-content">
+            <div class="canvas-container">
+                <button class="fullscreen-toggle" onclick="toggleFullscreen()">⛶ 全屏</button>
+                <div class="matrix-display">
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label>矩阵 A (2×2)</label>
+                            <div class="matrix-input">
+                                <div class="row">
+                                    <input type="number" id="a11" value="2" step="1">
+                                    <input type="number" id="a12" value="1" step="1">
+                                </div>
+                                <div class="row">
+                                    <input type="number" id="a21" value="3" step="1">
+                                    <input type="number" id="a22" value="4" step="1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label>矩阵 B (2×2)</label>
+                            <div class="matrix-input">
+                                <div class="row">
+                                    <input type="number" id="b11" value="1" step="1">
+                                    <input type="number" id="b12" value="2" step="1">
+                                </div>
+                                <div class="row">
+                                    <input type="number" id="b21" value="2" step="1">
+                                    <input type="number" id="b22" value="1" step="1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="operation-buttons">
+                            <button onclick="updateMatrix()">计算</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-card">
+                    <h3>det(A)</h3>
+                    <div class="formula">det(A) = a₁₁a₂₂ - a₁₂a₂₁</div>
+                    <div class="result" id="det-a">5</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>det(B)</h3>
+                    <div class="formula">det(B) = b₁₁b₂₂ - b₁₂b₂₁</div>
+                    <div class="result" id="det-b">-3</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>A + B</h3>
+                    <div class="formula">矩阵加法</div>
+                    <div class="result" id="sum-result">计算中...</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>A - B</h3>
+                    <div class="formula">矩阵减法</div>
+                    <div class="result" id="diff-result">计算中...</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>A × B</h3>
+                    <div class="formula">矩阵乘法</div>
+                    <div class="result" id="product-result">计算中...</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>det(A×B)</h3>
+                    <div class="formula">det(A)×det(B)</div>
+                    <div class="result" id="det-product">-15</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>迹 (Trace)</h3>
+                    <div class="formula">tr(A) = a₁₁ + a₂₂</div>
+                    <div class="result" id="trace-a">6</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="matrix.js"></script>
+    <script src="fullscreen.js"></script>
+</body>
+
+</html>

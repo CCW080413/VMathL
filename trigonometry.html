@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualMATH - 三角函数</title>
+    <link rel="stylesheet" href="interactive-tool.css">
+</head>
+
+<body>
+    <div class="page-container">
+        <header class="top-bar">
+            <button class="back-button" onclick="goBack()">← 返回</button>
+            <h1 class="page-title">三角函数与单位圆</h1>
+            <div class="placeholder"></div>
+        </header>
+
+        <div class="main-content">
+            <div class="canvas-container">
+                <button class="fullscreen-toggle" onclick="toggleFullscreen()">⛶ 全屏</button>
+                <canvas id="trigoCanvas"></canvas>
+                <div class="canvas-overlay">
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label>角度 θ (度数)</label>
+                            <input type="range" id="angle-slider" min="0" max="360" value="45" step="1">
+                            <div class="input-row">
+                                <input type="number" id="angle-input" value="45" step="1" min="0" max="360">
+                                <span>°</span>
+                            </div>
+                        </div>
+                        <div class="operation-buttons">
+                            <button onclick="updateTrigo()">更新</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-card">
+                    <h3>角度</h3>
+                    <div class="formula">θ (弧度和角度)</div>
+                    <div class="result" id="angle-value">45° / π/4</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>正弦</h3>
+                    <div class="formula">sin(θ) = y 坐标</div>
+                    <div class="result" id="sine-value">sin(45°) = √2/2</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>余弦</h3>
+                    <div class="formula">cos(θ) = x 坐标</div>
+                    <div class="result" id="cosine-value">cos(45°) = √2/2</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>正切</h3>
+                    <div class="formula">tan(θ) = y/x = sin(θ)/cos(θ)</div>
+                    <div class="result" id="tangent-value">tan(45°) = 1</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>勾股恒等式</h3>
+                    <div class="formula">sin²(θ) + cos²(θ) = 1</div>
+                    <div class="result" id="pythagorean-value">验证中...</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>象限判断</h3>
+                    <div class="formula">根据 θ 的大小</div>
+                    <div class="result" id="quadrant-value">象限 I</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>参考角</h3>
+                    <div class="formula">参考角 = θ - n·90°</div>
+                    <div class="result" id="reference-angle">45°</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="trigonometry.js"></script>
+    <script src="fullscreen.js"></script>
+</body>
+
+</html>

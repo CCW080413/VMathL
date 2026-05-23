@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualMATH - 向量</title>
+    <link rel="stylesheet" href="interactive-tool.css">
+</head>
+
+<body>
+    <div class="page-container">
+        <header class="top-bar">
+            <button class="back-button" onclick="goBack()">← 返回</button>
+            <h1 class="page-title">向量运算与几何</h1>
+            <div class="placeholder"></div>
+        </header>
+
+        <div class="main-content">
+            <div class="canvas-container">
+                <button class="fullscreen-toggle" onclick="toggleFullscreen()">⛶ 全屏</button>
+                <canvas id="vectorCanvas"></canvas>
+                <div class="canvas-overlay">
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label>向量 A = (x, y)</label>
+                            <div class="input-row">
+                                <input type="number" id="vec-ax" placeholder="x" value="3" step="0.5">
+                                <input type="number" id="vec-ay" placeholder="y" value="2" step="0.5">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label>向量 B = (x, y)</label>
+                            <div class="input-row">
+                                <input type="number" id="vec-bx" placeholder="x" value="1" step="0.5">
+                                <input type="number" id="vec-by" placeholder="y" value="3" step="0.5">
+                            </div>
+                        </div>
+                        <div class="operation-buttons">
+                            <button onclick="updateVector()">更新</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-card">
+                    <h3>向量 A 的模</h3>
+                    <div class="formula">|A| = √(x² + y²)</div>
+                    <div class="result" id="vec-a-magnitude">√13</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>向量 B 的模</h3>
+                    <div class="formula">|B| = √(x² + y²)</div>
+                    <div class="result" id="vec-b-magnitude">√10</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>点积 (数量积)</h3>
+                    <div class="formula">A·B = x₁x₂ + y₁y₂</div>
+                    <div class="result" id="dot-product">12</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>向量加法</h3>
+                    <div class="formula">A + B = (x₁+x₂, y₁+y₂)</div>
+                    <div class="result" id="vec-sum">(4, 5)</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>向量减法</h3>
+                    <div class="formula">A - B = (x₁-x₂, y₁-y₂)</div>
+                    <div class="result" id="vec-diff">(2, -1)</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>夹角</h3>
+                    <div class="formula">cos(θ) = (A·B)/(|A||B|)</div>
+                    <div class="result" id="angle-between">θ ≈ 33.69°</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>平行判断</h3>
+                    <div class="formula">A × B = 0 (在 2D 中)</div>
+                    <div class="result" id="parallel-check">x₁y₂ - x₂y₁ = 7</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vectors.js"></script>
+    <script src="fullscreen.js"></script>
+</body>
+
+</html>

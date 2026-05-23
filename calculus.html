@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualMATH - 微积分</title>
+    <link rel="stylesheet" href="interactive-tool.css">
+</head>
+
+<body>
+    <div class="page-container">
+        <header class="top-bar">
+            <button class="back-button" onclick="goBack()">← 返回</button>
+            <h1 class="page-title">导数与积分</h1>
+            <div class="placeholder"></div>
+        </header>
+
+        <div class="main-content">
+            <div class="canvas-container">
+                <button class="fullscreen-toggle" onclick="toggleFullscreen()">⛶ 全屏</button>
+                <canvas id="calculusCanvas"></canvas>
+                <div class="canvas-overlay">
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label>函数选择</label>
+                            <select id="func-select" onchange="updateCalculus()">
+                                <option value="quadratic">二次函数 f(x) = x²</option>
+                                <option value="cubic">三次函数 f(x) = x³ - 2x</option>
+                                <option value="sine">正弦函数 f(x) = sin(x)</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label>切线位置 x =</label>
+                            <input type="range" id="tangent-x" min="-3" max="3" value="1" step="0.1">
+                            <input type="number" id="tangent-x-input" value="1" step="0.1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-card">
+                    <h3>函数值</h3>
+                    <div class="formula">f(x) = ...</div>
+                    <div class="result" id="func-value">f(1) = 1</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>导数</h3>
+                    <div class="formula">f'(x) = lim[h→0] (f(x+h) - f(x))/h</div>
+                    <div class="result" id="derivative-value">f'(1) = 2</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>切线方程</h3>
+                    <div class="formula">y - f(a) = f'(a)(x - a)</div>
+                    <div class="result" id="tangent-line">y = 2x - 1</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>积分基本定理</h3>
+                    <div class="formula">∫ f(x)dx = F(x) + C</div>
+                    <div class="result" id="integral-info">其中 F'(x) = f(x)</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>不定积分</h3>
+                    <div class="formula">∫ xⁿ dx = xⁿ⁺¹/(n+1) + C</div>
+                    <div class="result" id="indefinite-int">计算中...</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>极值判断</h3>
+                    <div class="formula">当 f'(x) = 0 时</div>
+                    <div class="result" id="extrema-info">可能为极值点</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>曲率</h3>
+                    <div class="formula">κ = |f''(x)| / (1 + f'(x)²)^(3/2)</div>
+                    <div class="result" id="curvature">计算中...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="calculus.js"></script>
+    <script src="fullscreen.js"></script>
+</body>
+
+</html>

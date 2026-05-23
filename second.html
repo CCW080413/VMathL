@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualMATH - 函数</title>
+    <link rel="stylesheet" href="second.css">
+</head>
+
+<body>
+    <div class="page-container">
+        <!-- 主内容区域 - 图表和工具栏 -->
+        <div class="main-content">
+            <header class="top-bar">
+                <button class="back-button" onclick="goBack()">← 返回</button>
+                <h1 class="page-title">一元二次函数探索工具</h1>
+            </header>
+
+            <div class="content-area">
+                <!-- 图表容器 -->
+                <div class="canvas-container">
+                    <button class="fullscreen-toggle" onclick="toggleFullscreen()">⛶ 全屏</button>
+                    <canvas id="graphCanvas"></canvas>
+                    <div class="control-points">
+                        <div class="point-label">拖拽点来调整二次函数曲线</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧信息卡片区域 -->
+        <div class="info-panel">
+            <!-- 1. 点 -->
+            <div class="info-card">
+                <div class="card-header">点</div>
+                <div class="card-content">
+                    <div class="formula">P₁(x₁, y₁)</div>
+                    <div class="result" id="point1">P₁(0, 0)</div>
+                    <div class="formula">P₂(x₂, y₂)</div>
+                    <div class="result" id="point2">P₂(0, 0)</div>
+                    <div class="formula">P₃(x₃, y₃)</div>
+                    <div class="result" id="point3">P₃(0, 0)</div>
+                </div>
+            </div>
+
+            <!-- 2. 距离公式 -->
+            <div class="info-card">
+                <div class="card-header">距离公式</div>
+                <div class="card-content">
+                    <div class="formula">d = √[(x₂-x₁)² + (y₂-y₁)²]</div>
+                    <div class="result" id="distance">d(P₁,P₂) = 0</div>
+                    <div class="result" id="distance2">d(P₂,P₃) = 0</div>
+                </div>
+            </div>
+
+            <!-- 3. 中点公式 -->
+            <div class="info-card">
+                <div class="card-header">中点公式</div>
+                <div class="card-content">
+                    <div class="formula">M = ((x₁+x₂)/2, (y₁+y₂)/2)</div>
+                    <div class="result" id="midpoint1">M(P₁,P₂) = (0, 0)</div>
+                    <div class="result" id="midpoint2">M(P₂,P₃) = (0, 0)</div>
+                </div>
+            </div>
+
+            <!-- 4. 分点公式 -->
+            <div class="info-card">
+                <div class="card-header">分点公式</div>
+                <div class="card-content">
+                    <div class="formula">D = ((x₁+2x₂)/3, (y₁+2y₂)/3)</div>
+                    <div class="result" id="divide1">D(P₁,P₂) = (0, 0)</div>
+                    <div class="result" id="divide2">D(P₂,P₃) = (0, 0)</div>
+                </div>
+            </div>
+
+            <!-- 5. 线的斜率 -->
+            <div class="info-card">
+                <div class="card-header">线的斜率</div>
+                <div class="card-content">
+                    <div class="formula">k = (y₂-y₁)/(x₂-x₁)</div>
+                    <div class="result" id="slope1">k(P₁,P₂) = 0</div>
+                    <div class="result" id="slope2">k(P₂,P₃) = 0</div>
+                </div>
+            </div>
+
+            <!-- 6. X截距 -->
+            <div class="info-card">
+                <div class="card-header">X截距</div>
+                <div class="card-content">
+                    <div class="formula">当 y = 0 时的 x 值</div>
+                    <div class="result" id="x-intercept">x = 0</div>
+                </div>
+            </div>
+
+            <!-- 7. Y截距 -->
+            <div class="info-card">
+                <div class="card-header">Y截距</div>
+                <div class="card-content">
+                    <div class="formula">当 x = 0 时的 y 值</div>
+                    <div class="result" id="y-intercept">y = 0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="second.js"></script>
+    <script src="fullscreen.js"></script>
+</body>
+
+</html>

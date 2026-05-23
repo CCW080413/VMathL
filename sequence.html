@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualMATH - 数列</title>
+    <link rel="stylesheet" href="interactive-tool.css">
+</head>
+
+<body>
+    <div class="page-container">
+        <header class="top-bar">
+            <button class="back-button" onclick="goBack()">← 返回</button>
+            <h1 class="page-title">等差与等比数列</h1>
+            <div class="placeholder"></div>
+        </header>
+
+        <div class="main-content">
+            <div class="canvas-container">
+                <button class="fullscreen-toggle" onclick="toggleFullscreen()">⛶ 全屏</button>
+                <canvas id="sequenceCanvas"></canvas>
+                <div class="canvas-overlay">
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label>等差数列</label>
+                            <div class="input-row">
+                                <label>首项 a₁ =</label>
+                                <input type="number" id="ap-first" value="1" step="1">
+                            </div>
+                            <div class="input-row">
+                                <label>公差 d =</label>
+                                <input type="number" id="ap-diff" value="2" step="1">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label>等比数列</label>
+                            <div class="input-row">
+                                <label>首项 a₁ =</label>
+                                <input type="number" id="gp-first" value="1" step="1">
+                            </div>
+                            <div class="input-row">
+                                <label>公比 r =</label>
+                                <input type="number" id="gp-ratio" value="2" step="0.1">
+                            </div>
+                        </div>
+                        <div class="operation-buttons">
+                            <button onclick="updateSequence()">更新</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-card">
+                    <h3>等差数列通项</h3>
+                    <div class="formula">aₙ = a₁ + (n-1)d</div>
+                    <div class="result" id="ap-general">aₙ = 1 + (n-1)·2</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>等比数列通项</h3>
+                    <div class="formula">aₙ = a₁·rⁿ⁻¹</div>
+                    <div class="result" id="gp-general">aₙ = 1·2ⁿ⁻¹</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>等差数列和</h3>
+                    <div class="formula">Sₙ = n(a₁ + aₙ)/2</div>
+                    <div class="result" id="ap-sum">计算中...</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>等比数列和</h3>
+                    <div class="formula">Sₙ = a₁(1-rⁿ)/(1-r)</div>
+                    <div class="result" id="gp-sum">计算中...</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>前 10 项</h3>
+                    <div class="formula">数列的前 10 项</div>
+                    <div class="result" id="first-ten">计算中...</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>第 n 项</h3>
+                    <div class="formula">当 n = 5 时</div>
+                    <div class="result" id="nth-term">a₅ = 9</div>
+                </div>
+
+                <div class="info-card">
+                    <h3>极限行为</h3>
+                    <div class="formula">n → ∞ 时</div>
+                    <div class="result" id="limit-behavior">等差趋向 ∞</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="sequence.js"></script>
+    <script src="fullscreen.js"></script>
+</body>
+
+</html>
